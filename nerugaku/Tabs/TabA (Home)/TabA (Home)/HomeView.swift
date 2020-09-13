@@ -42,7 +42,7 @@ struct HomeView: View {
 //                    Divider()
 //
 //                }
-                    Future()
+//                    Future()
 
                     
                     ForEach(categories.keys.sorted(), id: \.self) { key in
