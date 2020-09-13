@@ -15,15 +15,14 @@ struct TabCView: View {
         NavigationView{
             // 垂直方向のView設定
             VStack (alignment: .center, spacing: 20) {
-                Text("Hello, World!")  // 1つめのテキスト (VStack内のテキストは縦に並ぶ)
+                Text("Hi there!")  // 1つめのテキスト (VStack内のテキストは縦に並ぶ)
                     .font(.largeTitle)  // フォントを変更
                 
                 // 水平方向のプレビュー設定
                 HStack {
-                    Text("First APp")  // 2つめのテキスト
+                    Text("Fuck Apple, hurry up my apple developers account. I cant make app which use health kit.")  // 2つめのテキスト
                         .font(.subheadline)
-                    Text("-First Project-")  // Hstack内のテキストは横に並ぶ
-                        .font(.subheadline)
+                        .padding(.horizontal)
                 }
                     .padding(.bottom,100)  // 間に余白を入れる
                 
