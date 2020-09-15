@@ -20,7 +20,7 @@ struct TabCView: View {
                 
                 // 水平方向のプレビュー設定
                 HStack {
-                    Text("Fuck Apple, hurry up my apple developers account. I cant make app which use health kit.")  // 2つめのテキスト
+                    Text("waiting health kit...")  // 2つめのテキスト
                         .font(.subheadline)
                         .padding(.horizontal)
                 }
