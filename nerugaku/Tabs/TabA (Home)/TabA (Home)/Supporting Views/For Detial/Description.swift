@@ -32,11 +32,15 @@ struct Description: View {
                 //コンテンツの概要
                 HStack {
                     Text(audioContent.description)
+                        .foregroundColor(Color(UIColor.label))
                         .multilineTextAlignment(.leading)
+                        .lineLimit(5)
+                    
                 }
                 HStack (alignment: .top) {
                     Text(String(audioContent.allfavorite) + "いいね・" + String(audioContent.alltime) + "分")
-                        .multilineTextAlignment(.leading)
+                        .foregroundColor(Color(UIColor.secondaryLabel))
+//                        .multilineTextAlignment(.leading)
                     Spacer()
                 }
                 .padding(.top)
@@ -59,12 +63,12 @@ struct Description: View {
                         Image(systemName: "heart.fill")
                             .padding(.trailing, 10.0)
                             .font(.system(size: 35.0, weight: .thin))
-                            .foregroundColor(Color.red)
+                            .foregroundColor(Color.accentColor)
                     } else {
                         Image(systemName: "heart")
                             .padding(.trailing, 10.0)
                             .font(.system(size: 35.0, weight: .thin))
-                            .foregroundColor(Color.red)
+                            .foregroundColor(Color.accentColor)
                     }
                 }
                 //                    ここまで
@@ -88,7 +92,7 @@ struct Description: View {
                     .padding(.bottom, 10.0)
                     .frame(width: nil)
                     .font(.system(size: 55.0, weight: .thin))
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color.accentColor)
                     .onTapGesture {
                         self.isAudioShown = true
                     }
@@ -107,21 +111,27 @@ struct Description: View {
         }, label: {
             
             //                    問題数を取得
-            Text("問題を解く\n" + String(audioContent.allpharase) + "単語")
-                
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 120.0)
-                .frame(height: 55.0)
-                .background(Color.green)
-                .foregroundColor(Color.white)
-                .cornerRadius(10)
-                .onTapGesture {
-                    self.isQuestionShown = true
-                }
-                .sheet(isPresented: self.$isQuestionShown) {
-                    //モーダル遷移した後に表示するビュー
-                    QuestionRootView(audioContent: audioContent)
-                }
+            if #available(iOS 14.0, *) {
+                Text("問題を解く\n" + String(audioContent.allpharase) + "単語")
+                    .font(.title3)
+                    
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 120.0)
+                    .frame(height: 55.0)
+                    .background(Color(UIColor.systemGray3))
+                    .foregroundColor(Color.white)
+                    .cornerRadius(10)
+                    .onTapGesture {
+                        self.isQuestionShown = true
+                    }
+                    .sheet(isPresented: self.$isQuestionShown) {
+                        //モーダル遷移した後に表示するビュー
+                        QuestionRootView(audioContent: audioContent)
+                    }
+            } else {
+                // Fallback on earlier versions
+            }
         })
         .padding(.top)
         

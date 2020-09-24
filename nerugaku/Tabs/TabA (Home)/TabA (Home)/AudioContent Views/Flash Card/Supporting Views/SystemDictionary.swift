@@ -116,7 +116,7 @@ public class WebViewStore: ObservableObject {
   deinit {
     observers.forEach {
       // Not even sure if this is required?
-      // Probably wont be needed in future betas?
+      // Probably wont be needed in FuturedCollection betas?
       $0.invalidate()
     }
   }

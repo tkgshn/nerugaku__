@@ -33,12 +33,10 @@ struct BackgroundImage: View {
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.leading)
                         .padding()
-//                        .frame(width: 400.0)
                     Spacer()
                     }
                 }
                     //                    ここで文字列類の位置を調節
-//                    .padding(.top)
                     .offset(y: 170)
                 
         )

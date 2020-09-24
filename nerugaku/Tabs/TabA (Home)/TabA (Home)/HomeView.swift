@@ -9,20 +9,22 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+    //    カテゴリーを生成
     var categories: [String: [AudioContent]] {
         Dictionary(
             grouping: audioContentData,
             by: { $0.category.rawValue }
         )
     }
+    //    フィルターしたFeaturedを生成
     var featured: [AudioContent] {
         audioContentData.filter { $0.isFeatured }
     }
+    //    プロフィール画面を開いているかどうかのスイッチ
     @State var showingProfile = false
     @EnvironmentObject var userData: UserData
     
-    //    ヘッダーに置くボタン
+    //        ヘッダーに置くボタン
     var profileButton: some View {
         Button(action: { self.showingProfile.toggle() }) {
             Image(systemName: "person.crop.circle")
@@ -37,42 +39,58 @@ struct HomeView: View {
         NavigationView {
             
             ScrollView {
-//                ForEach(categories.keys.sorted(), id: \.self) { key in
-//                FutureRow(audioContent: audioContentData[0])
-//                    Divider()
-//
-//                }
                 if #available(iOS 14.0, *) {
-                    Future()
-                } else {
-                   FavoritedRow()
-                }
-
+                    FuturedCollection()
+                        .padding(.vertical)
+                        .padding(.horizontal, 15.0)
                     
-                    ForEach(categories.keys.sorted(), id: \.self) { key in
-                        CategoryRow(categoryName: key, items: self.categories[key]!)
-                    }
-                        Divider()
+                } else {
+                }
+                
+                
+                ForEach(categories.keys.sorted(), id: \.self) { key in
+                    CategoryRow(categoryName: key, items: self.categories[key]!)
+                    //                            .padding(.horizontal, 5.0)
+                }
+                
+                
                 .padding(.top)
-                .listRowInsets(EdgeInsets())
+                Divider()
+//                    .padding(.top)
+//                    .listRowInsets(EdgeInsets())
+                
+                
+                    
+                    Section{
+                                NavigationLink(destination: AudioContentList()) {
+                                    HStack {
+                                        Text("See All")
+                                        
+                                        Spacer()
+                                    }
+                                    .padding(.horizontal)
+                                }}
                 
                 
                 //                               Listの最後にある”全て見る”を担う部分
-//                NavigationLink(destination: AllContent()
-//                                .environmentObject(UserData())) {
-//                    Text("See All")
-//                }
+//                                NavigationLink(destination: AllContent()
+//                                                .environmentObject(UserData())) {
+//                                    Text("See All")
+//                                }
                 
             }
             
             .navigationBarTitle(Text("Home"))
             .environmentObject(UserData())
+            .navigationBarItems(trailing: profileButton)
+            .sheet(isPresented: $showingProfile) {
+                ProfileHost()
+            }
         }
         
     }
     
 }
-
 
 
 

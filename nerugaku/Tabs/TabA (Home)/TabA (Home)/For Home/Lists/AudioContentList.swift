@@ -1,5 +1,5 @@
 //
-//  Favorited.swift
+//  AudioContentList.swift
 //  nerugaku1
 //
 //  Created by Shunsuke Takagi on 9/11/20.
@@ -8,30 +8,30 @@
 
 import SwiftUI
 
-struct FavoritedList: View {
+struct AudioContentList: View {
     @EnvironmentObject private var userData: UserData
-    
     var body: some View {
         List {
             ForEach(audioContentData) { audioContent in
-                if  audioContent.isFavorite {
-                    NavigationLink(
-                        destination: AudioContentDetail(audioContent: audioContent)
-                    ) {
-                        AudioContentRow(audioContent: audioContent)
-                    }
+                
+                NavigationLink(
+                    destination: AudioContentDetail(audioContent: audioContent)
+                ) {
+                    AudioContentRow(audioContent: audioContent)
                 }
+                
             }
         }
+        .navigationBarTitle(Text("すべて"))
         .environmentObject(UserData())
     }
 }
 
-struct FavoritedList_Previews: PreviewProvider {
+struct AudioContentList_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
             NavigationView {
-                FavoritedList()
+                AudioContentList()
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
             }
@@ -39,3 +39,4 @@ struct FavoritedList_Previews: PreviewProvider {
         .environmentObject(UserData())
     }
 }
+

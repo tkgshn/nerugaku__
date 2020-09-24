@@ -1,5 +1,5 @@
 //
-//  TabCView.swift
+//  SleepView.swift
 //  nerugaku1
 //
 //  Created by Shunsuke Takagi on 2020/07/22.
@@ -10,7 +10,9 @@ import SwiftUI
 import HealthKit
 
 // Main Process / First View
-struct TabCView: View {
+struct SleepView: View {
+    
+    
     var body: some View {
         NavigationView{
             // 垂直方向のView設定
@@ -43,8 +45,8 @@ struct TabCView: View {
 }
 
 // Mainのstructのインスタンスを生成し，画面に表示
-struct TabCView_Previews: PreviewProvider {
+struct SleepView_Previews: PreviewProvider {
     static var previews: some View {
-        TabCView()
+        SleepView()
     }
 }

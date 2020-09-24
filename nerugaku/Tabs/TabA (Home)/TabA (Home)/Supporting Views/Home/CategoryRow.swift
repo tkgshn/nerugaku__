@@ -20,17 +20,23 @@ struct CategoryRow: View {
         VStack(alignment: .leading) {
 //            テキスト
             HStack {
-                Text(self.categoryName)
-                    .font(.headline)
-                    .padding(.leading, 15)
-                    .padding(.top, 5)
+                if #available(iOS 14.0, *) {
+                    Text(self.categoryName)
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .padding(.leading, 15)
+                        .padding(.top, 5)
+                } else {
+                    // Fallback on earlier versions
+                }
                 Spacer()
                 NavigationLink(
                     destination: SearchCategoryItem(categoryName: categoryName, items: self.items
                     )
                 ) {
                     Text("すべて見る")
-                        .font(.headline)
+                        .font(.subheadline)
+                        .fontWeight(.medium)
                         .padding(.trailing, 15)
                         .padding(.top, 5)
                 }
@@ -74,7 +80,7 @@ struct CategoryItem: View {
             //            タイトルを追加
             Text(audioContent.name)
                 .foregroundColor(.primary)
-                .font(.caption)
+                .font(.subheadline)
         }
         .padding(.leading, 15)
     }

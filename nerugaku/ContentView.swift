@@ -38,12 +38,9 @@ struct ContentView: View {
                         Text("Search")
                     }
             }.tag(2)
-            
-            //            ここが睡眠の遷移
-            //            これがクリックした後に表示するview
-            TabCView()
+
+            SleepView()
                 .tabItem {
-                    //                    ここからがタブのアイコンとか
                     VStack {
                         Image(systemName: "bed.double.fill")
                         Text("Sleep")

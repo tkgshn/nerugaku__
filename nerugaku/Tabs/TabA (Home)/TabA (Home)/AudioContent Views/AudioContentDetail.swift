@@ -31,21 +31,26 @@ struct AudioContentDetail: View {
                 
                 Description(audioContent: audioContent)
                     .padding(.top, 50.0)
-                Divider()
-                    .padding(.top)
+                    .padding(.bottom)
                 //                下に書いている
                 PhraseRow(audioContent: audioContent)
-                    
-                    .padding(.top)
-                
-                CategoryRow(categoryName: audioContentData[0].category.rawValue,
+//                    .padding(.vertical)
+//                    .padding(.bottom)
+                Spacer()
+                    .padding(.bottom)
+                CategorySell(categoryName: audioContentData[0].category.rawValue,
                             items: Array(audioContentData.prefix(4))
                 )
-                    .padding(.vertical)
+                .padding(.top, 30)
+                .padding(.bottom, 60)
                     .environmentObject(UserData())
+                .background(Color(UIColor.systemGray6))
+                .edgesIgnoringSafeArea( .bottom)
                 
             }
-        }.edgesIgnoringSafeArea(.top)
+        }
+        .edgesIgnoringSafeArea(.top)
+//        .edgesIgnoringSafeArea(.all)
             .environmentObject(UserData())
     }
 }
@@ -70,15 +75,24 @@ struct PhraseRow: View {
 //        このままだとフレーズの数が追加された時にクラッシュする
 //        解決策：持っているフレーズの総数をどこかの関数化して、その数以下の取得をするようにする
         //✅
+//        VStack {
         ForEach(1..<audioContent.allpharase) { num in
-            //                日本語を取得
-            VStack(alignment: .leading) {
-                Text(self.audioContent.phrases[String(num)]!.japanese)
-                    .padding(.bottom)
-            //                英語を取得
-            Text(self.audioContent.phrases[String(num)]!.english)
-            }
+//            Section {
             Divider()
+            //                日本語を取得
+            VStack(alignment: .center) {
+                Text(self.audioContent.phrases[String(num)]!.japanese)
+                    .padding(.top, 10)
+//                    .padding(.vertical)
+            //                英語を取得
+                Spacer()
+                Text(self.audioContent.phrases[String(num)]!.english)
+                    .padding(.bottom, 10)
+//                    .padding(.vertical)
+            }
+            
+            
         }
+//    }
     }
 }

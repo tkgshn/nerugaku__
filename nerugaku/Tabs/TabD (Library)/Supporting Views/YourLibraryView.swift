@@ -104,7 +104,7 @@ struct YourLibraryView: View {
                         //                            }
                         
                         
-                        FavoritedList()
+                        List1()
                     } else if self.nestedPages == [1,0] {
                         //                            ZStack {
                         //                                Rectangle()
@@ -113,7 +113,7 @@ struct YourLibraryView: View {
                         //                                    .bold()
                         //                            }
                         
-                        AudioContentList()
+                        ListSecond()
                     } else {
                         ZStack {
                             Rectangle()

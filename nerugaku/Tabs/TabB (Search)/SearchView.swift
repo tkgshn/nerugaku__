@@ -10,6 +10,16 @@ import SwiftUI
 
 struct SearchView: View {
     
+    @State var showingProfile = false
+    var profileButton: some View {
+        Button(action: { self.showingProfile.toggle() }) {
+            Image(systemName: "person.crop.circle")
+                .imageScale(.large)
+                .accessibility(label: Text("User Profile"))
+                .padding()
+        }
+    }
+    
     var categories: [String: [AudioContent]] {
         Dictionary(
             grouping: audioContentData,
@@ -63,7 +73,7 @@ struct SearchView: View {
                     
                     ForEach(categories.keys.filter{$0.hasPrefix(searchText) || searchText == ""}, id:\.self) { searchText in
                         NavigationLink(
-                            destination: SearchCategoryItem(categoryName: searchText, items: self.categories[searchText]!)
+                            destination: CategoryList(categoryName: searchText, items: self.categories[searchText]!)
                                 .environmentObject(UserData())
                             
                         ) {
@@ -74,6 +84,10 @@ struct SearchView: View {
                 .navigationBarTitle(Text("Search"))
                 .resignKeyboardOnDragGesture()
                 .environmentObject(UserData())
+                .navigationBarItems(trailing: profileButton)
+                .sheet(isPresented: $showingProfile) {
+                    ProfileHost()
+                }
             }
         }
     }
@@ -90,31 +104,6 @@ struct SearchView_Previews: PreviewProvider {
             SearchView()
                 .environment(\.colorScheme, .dark)
         }
-    }
-}
-
-
-struct SearchCategoryItem: View {
-    var categoryName: String
-    var items: [AudioContent]
-    @EnvironmentObject var userData: UserData
-    
-    var body: some View {
-        //        縦方向
-        List {
-            ForEach(self.items) { audioContent in
-                //                        それをクリックできるようにする
-                NavigationLink(
-                    destination: AudioContentDetail(
-                        audioContent: audioContent
-                    )
-                ) {
-                    AudioContentRow(audioContent: audioContent)
-                    
-                }
-            }
-        }
-//        .navigationBarTitle(Text(self.categoryName), displayMode: .inline)
     }
 }
 
