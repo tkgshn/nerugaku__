@@ -38,7 +38,7 @@ struct AudioContentDetail: View {
 //                    .padding(.bottom)
                 Spacer()
                     .padding(.bottom)
-                CategorySell(categoryName: audioContentData[0].category.rawValue,
+                CategoryRow(categoryName: audioContentData[0].category.rawValue,
                             items: Array(audioContentData.prefix(4))
                 )
                 .padding(.top, 30)
