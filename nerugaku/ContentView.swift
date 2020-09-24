@@ -17,7 +17,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var isShown: Bool = false
     var audioContentData: AudioContent
     
     var body: some View {

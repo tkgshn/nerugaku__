@@ -9,6 +9,102 @@
 import SwiftUI
 import SwiftUICharts
 
+struct learningTime: View {
+    var body: some View {
+        HStack {
+            //                        ここから中身
+            VStack {
+                HStack {
+                    Image(systemName: "timer")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                    Text("総学習時間")
+                        .font(.system(size: 13))
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(1)
+                    Spacer()
+                }
+                .padding(.leading, 8.0)
+                HStack {
+                    Text("7")
+                    Text("分")
+                }
+                .padding(.vertical, 0.2)
+
+            }
+            .padding(.bottom, 20.0)
+            .frame(width: 120, height: 80)
+            .background(Color.gray)
+            .cornerRadius(5)
+        }
+    }
+}
+
+
+struct learningCount: View {
+    var body: some View {
+        HStack {
+            //                        ここから中身
+            VStack {
+                HStack {
+                    Image(systemName: "timer")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                    Text("総学習回数")
+                        .font(.system(size: 13))
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(1)
+                    Spacer()
+                }
+                .padding(.leading, 8.0)
+                HStack {
+                    Text("7")
+                    Text("回")
+                }
+                .padding(.vertical, 0.2)
+
+            }
+            .padding(.bottom, 20.0)
+            .frame(width: 120, height: 80)
+            .background(Color.gray)
+            .cornerRadius(5)
+        }
+    }
+}
+struct learningDay: View {
+    var body: some View {
+        HStack {
+            //                        ここから中身
+            VStack {
+                HStack {
+                    Image(systemName: "timer")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                    Text("連続学習日数")
+                        .font(.system(size: 13))
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(1)
+                    Spacer()
+                }
+                .padding(.leading, 8.0)
+                HStack {
+                    Text("7")
+                    Text("分")
+                }
+                .padding(.vertical, 0.2)
+                
+                Text("自己ベスト")
+                    .font(.system(size: 10))
+            }
+            .frame(width: 120, height: 80)
+            .background(Color.gray)
+            .cornerRadius(5)
+        }
+    }
+}
+
+
+
 struct YouView: View {
     
     @State var showingProfile = false
@@ -40,23 +136,19 @@ struct YouView: View {
                     .padding(.top, 300.0)
                     .padding([.leading, .bottom, .trailing], 20.0)
                     
-                    Group {
-                        HStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(lineWidth: 0.5)
-                                .frame(width: nil, height: 80.0)
-                            Spacer()
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(lineWidth: 0.5)
-                                .frame(width: nil, height: 80.0)
-                            Spacer()
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(lineWidth: 0.5)
-                                .frame(width: nil, height: 80.0)
-                            
-                        }
-                    }
-                    .padding([.leading, .bottom, .trailing], 20.0)
+                    
+                    
+                    HStack {
+                        Spacer()
+                        learningTime()
+                        Spacer()
+                        learningCount()
+                        Spacer()
+                        learningDay()
+                        Spacer()
+                    } .padding([.leading, .bottom, .trailing], 10.0)
+                    
+                    
                 }
             }
             .navigationBarTitle(Text("You"))
@@ -67,6 +159,7 @@ struct YouView: View {
         }
     }
 }
+
 
 
 struct YouView_Previews: PreviewProvider {

@@ -113,7 +113,8 @@ struct SearchCategoryItem: View {
                     
                 }
             }
-        }.navigationBarTitle(Text(self.categoryName), displayMode: .inline)
+        }
+//        .navigationBarTitle(Text(self.categoryName), displayMode: .inline)
     }
 }
 

@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import QGrid
+//import QGrid
 // MARK: - FutureRow
 struct FutureRow: View {
     
@@ -21,12 +21,19 @@ struct FutureRow: View {
                 destination: SearchCategoryItem(categoryName: categoryName, items: self.items
                 )
             ) {
+                Image("Airplane")
+                    .resizable()
+                    .frame(width: 60.0, height: 60.0)
+                
                 Text(self.categoryName)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.white)
                     .padding(.leading, 10.0)
+                Spacer()
             }
         }
         .frame(width: 190, height: 60)
-        .background(Color(red: 38/255, green: 39/255, blue: 10/255, opacity: 40/255))
+        .background(Color.gray)
     }
 }
 
@@ -36,7 +43,7 @@ struct FutureRow: View {
 struct FutureRow_Previews: PreviewProvider {
     static var previews: some View {
         FutureRow(categoryName: audioContentData[0].category.rawValue,
-                       items: Array(audioContentData.prefix(4)))
+                  items: Array(audioContentData.prefix(4)))
             .previewLayout(.fixed(width: 190, height: 60))
             .environmentObject(UserData())
         
@@ -49,17 +56,23 @@ struct FavoritedRow: View {
     var body: some View {
         NavigationLink(destination: FavoritedList()) {
             HStack {
-                Image(systemName: "heart")
-                    .padding(.leading, 20.0)
-                    .font(.system(size: 25.0, weight: .thin))
-                    .foregroundColor(Color.red)
-                
+                ZStack {
+                    Rectangle()
+                        .fill(Color.yellow)
+                        .frame(width: 60.0, height: 60.0)
+                    Image(systemName: "heart")
+                        .font(.system(size: 30.0, weight: .thin))
+                        .foregroundColor(Color.red)
+                    
+                }
                 Text("お気に入り")
-                    .padding(.leading, 25.0)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                    .padding(.leading, 10.0)
                 Spacer()
             }
             .frame(width: 190, height: 60)
-            .background(Color(red: 38/255, green: 39/255, blue: 10/255, opacity: 40/255))
+            .background(Color.gray)
         }
     }
 }
@@ -74,6 +87,7 @@ struct FavoritedRow_Previews: PreviewProvider {
 }
 
 // MARK: - Future
+@available(iOS 14.0, *)
 struct Future: View {
     
     @EnvironmentObject private var userData: UserData
@@ -86,21 +100,32 @@ struct Future: View {
     //    var items: [AudioContent]
     
     var body: some View {
-        VStack {
-//            ここからが中身
-            FavoritedRow()
-    
-            ForEach(categories.keys.sorted(), id: \.self) { key in
-                
+        
+        
+        if #available(iOS 14.0, *) {
+            LazyVGrid(columns: Array(repeating: GridItem(), count: 2)) { // カラム数の指定
+                FavoritedRow()
+                ForEach(categories.keys.sorted(), id: \.self) { key in
                     FutureRow(categoryName: key, items: self.categories[key]!)
-                
-                
+                        .padding(.bottom, 0.1)
+                    //
+                    
+                }
             }
+            .padding(.all)
             
-            .padding(.bottom)
+            .environmentObject(UserData())
+        } else {
+            //            iOS14以上ではなかった場合のハンドリングをやらなきゃいけない
+            VStack {
+                ForEach(categories.keys.sorted(), id: \.self) { key in
+                    
+                    FutureRow(categoryName: key, items: self.categories[key]!)
+                    
+                    
+                }
+            }
         }
-        .frame(width: 300, height: 250)
-        .environmentObject(UserData())
         
     }
 }
@@ -108,7 +133,11 @@ struct Future: View {
 // MARK: - FutureView
 struct Future_Previews: PreviewProvider {
     static var previews: some View {
-        Future()
-            .environmentObject(UserData())
+        if #available(iOS 14.0, *) {
+            Future()
+                .environmentObject(UserData())
+        } else {
+            FavoritedRow()
+        }
     }
 }

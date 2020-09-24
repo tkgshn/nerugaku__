@@ -24,6 +24,7 @@
 		C4080EB2250B5CDC004001C0 /* FavoritedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4080EB1250B5CDC004001C0 /* FavoritedList.swift */; };
 		C4080EB4250BA921004001C0 /* AudioContentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4080EB3250BA921004001C0 /* AudioContentList.swift */; };
 		C4080EB8250C2BDF004001C0 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4080EB6250C2B71004001C0 /* HealthKit.framework */; };
+		C41786D4251CD46C002E3FA8 /* SystemDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41786D3251CD46C002E3FA8 /* SystemDictionary.swift */; };
 		C43FD3D424CAFC0200430C3B /* YouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FD3D324CAFC0200430C3B /* YouView.swift */; };
 		C43FD3D624CB059A00430C3B /* AudioContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FD3D524CB059A00430C3B /* AudioContentRow.swift */; };
 		C457D26224F940A4000EB044 /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457D26124F940A4000EB044 /* ControlsViewController.swift */; };
@@ -60,7 +61,6 @@
 		C4B2E29924CF45B90084B0E3 /* YourLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2E29824CF45B90084B0E3 /* YourLibraryView.swift */; };
 		C4B2E29B24CF45F20084B0E3 /* SubCategoryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2E29A24CF45F10084B0E3 /* SubCategoryText.swift */; };
 		C4B2E29D24CF46140084B0E3 /* CategoryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2E29C24CF46140084B0E3 /* CategoryText.swift */; };
-		C4B2E2A024CF46990084B0E3 /* MediaContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2E29F24CF46990084B0E3 /* MediaContentView.swift */; };
 		C4CEC5E824FB2EE5002E08B1 /* 曜日.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4CEC5DE24FB2EE3002E08B1 /* 曜日.mp3 */; };
 		C4CEC5E924FB2EE5002E08B1 /* 読み書き.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4CEC5DF24FB2EE3002E08B1 /* 読み書き.mp3 */; };
 		C4CEC5EA24FB2EE5002E08B1 /* 数.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4CEC5E024FB2EE4002E08B1 /* 数.mp3 */; };
@@ -73,6 +73,10 @@
 		C4CEC5F124FB2EE5002E08B1 /* 時刻.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4CEC5E724FB2EE5002E08B1 /* 時刻.mp3 */; };
 		C4CEC5F324FB3F78002E08B1 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEC5F224FB3F78002E08B1 /* AudioPlayerView.swift */; };
 		C4CEC5F924FBCE64002E08B1 /* ProfileHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEC5F824FBCE64002E08B1 /* ProfileHost.swift */; };
+		C4F206E525160B4000336803 /* QuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F206E425160B4000336803 /* QuestionsView.swift */; };
+		C4F206F8251B4AA800336803 /* QuestionSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F206F7251B4AA800336803 /* QuestionSummary.swift */; };
+		C4F206FD251B606B00336803 /* QuestionProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F206FC251B606B00336803 /* QuestionProgress.swift */; };
+		C4F20704251B680300336803 /* QuestionChoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F20703251B680300336803 /* QuestionChoices.swift */; };
 		C4F78A8124FAC47C007FE659 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = C4F78A8024FAC47C007FE659 /* SwiftUICharts */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +98,7 @@
 		C4080EB3250BA921004001C0 /* AudioContentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentList.swift; sourceTree = "<group>"; };
 		C4080EB5250C2B71004001C0 /* nerugaku.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nerugaku.entitlements; sourceTree = "<group>"; };
 		C4080EB6250C2B71004001C0 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		C41786D3251CD46C002E3FA8 /* SystemDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemDictionary.swift; sourceTree = "<group>"; };
 		C43FD3D324CAFC0200430C3B /* YouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouView.swift; sourceTree = "<group>"; };
 		C43FD3D524CB059A00430C3B /* AudioContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentRow.swift; sourceTree = "<group>"; };
 		C457D26124F940A4000EB044 /* ControlsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsViewController.swift; sourceTree = "<group>"; };
@@ -131,7 +136,6 @@
 		C4B2E29824CF45B90084B0E3 /* YourLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryView.swift; sourceTree = "<group>"; };
 		C4B2E29A24CF45F10084B0E3 /* SubCategoryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryText.swift; sourceTree = "<group>"; };
 		C4B2E29C24CF46140084B0E3 /* CategoryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryText.swift; sourceTree = "<group>"; };
-		C4B2E29F24CF46990084B0E3 /* MediaContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaContentView.swift; sourceTree = "<group>"; };
 		C4CEC5DE24FB2EE3002E08B1 /* 曜日.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "曜日.mp3"; sourceTree = "<group>"; };
 		C4CEC5DF24FB2EE3002E08B1 /* 読み書き.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "読み書き.mp3"; sourceTree = "<group>"; };
 		C4CEC5E024FB2EE4002E08B1 /* 数.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "数.mp3"; sourceTree = "<group>"; };
@@ -144,6 +148,10 @@
 		C4CEC5E724FB2EE5002E08B1 /* 時刻.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "時刻.mp3"; sourceTree = "<group>"; };
 		C4CEC5F224FB3F78002E08B1 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		C4CEC5F824FBCE64002E08B1 /* ProfileHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHost.swift; sourceTree = "<group>"; };
+		C4F206E425160B4000336803 /* QuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsView.swift; sourceTree = "<group>"; };
+		C4F206F7251B4AA800336803 /* QuestionSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSummary.swift; sourceTree = "<group>"; };
+		C4F206FC251B606B00336803 /* QuestionProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionProgress.swift; sourceTree = "<group>"; };
+		C4F20703251B680300336803 /* QuestionChoices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionChoices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,7 +351,6 @@
 		C4A0DC2D24C9815000421EA6 /* TabD (Library) */ = {
 			isa = PBXGroup;
 			children = (
-				C4B2E29E24CF46740084B0E3 /* Components */,
 				C4A0DC2224C8497A00421EA6 /* LibraryView.swift */,
 				C4B2E29824CF45B90084B0E3 /* YourLibraryView.swift */,
 				C4B2E29A24CF45F10084B0E3 /* SubCategoryText.swift */,
@@ -380,14 +387,6 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		C4B2E29E24CF46740084B0E3 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				C4B2E29F24CF46990084B0E3 /* MediaContentView.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		C4CEC5F424FBC93B002E08B1 /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +414,7 @@
 			children = (
 				C4A0DC1824C6D8E300421EA6 /* AudioContentDetail.swift */,
 				C43FD3D524CB059A00430C3B /* AudioContentRow.swift */,
+				C4F206E325160AE300336803 /* Flash Card */,
 			);
 			path = "AudioContent Views";
 			sourceTree = "<group>";
@@ -425,6 +425,26 @@
 				C4CEC5F824FBCE64002E08B1 /* ProfileHost.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		C4F206E325160AE300336803 /* Flash Card */ = {
+			isa = PBXGroup;
+			children = (
+				C4F206E425160B4000336803 /* QuestionsView.swift */,
+				C4F206F7251B4AA800336803 /* QuestionSummary.swift */,
+				C4F20706251B691D00336803 /* Supporting Views */,
+			);
+			path = "Flash Card";
+			sourceTree = "<group>";
+		};
+		C4F20706251B691D00336803 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				C4F206FC251B606B00336803 /* QuestionProgress.swift */,
+				C4F20703251B680300336803 /* QuestionChoices.swift */,
+				C41786D3251CD46C002E3FA8 /* SystemDictionary.swift */,
+			);
+			path = "Supporting Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,10 +561,13 @@
 				C457D27424F9425F000EB044 /* SampleBufferSerializer.swift in Sources */,
 				C457D26B24F941DE000EB044 /* PlaylistItem.swift in Sources */,
 				C4A0DC2524C84A6700421EA6 /* Description.swift in Sources */,
+				C4F206E525160B4000336803 /* QuestionsView.swift in Sources */,
 				C4A0DC2124C8496C00421EA6 /* TabCView.swift in Sources */,
 				C457D26F24F94205000EB044 /* RemoteCommandCenter.swift in Sources */,
+				C4F206FD251B606B00336803 /* QuestionProgress.swift in Sources */,
 				C4080EB2250B5CDC004001C0 /* FavoritedList.swift in Sources */,
 				C4CEC5F324FB3F78002E08B1 /* AudioPlayerView.swift in Sources */,
+				C4F20704251B680300336803 /* QuestionChoices.swift in Sources */,
 				C4080EB0250B5370004001C0 /* Future.swift in Sources */,
 				C457D26224F940A4000EB044 /* ControlsViewController.swift in Sources */,
 				C4A0DC3324C981EF00421EA6 /* CategoryRow.swift in Sources */,
@@ -557,6 +580,7 @@
 				C4A0DC1724C6D8CD00421EA6 /* HomeView.swift in Sources */,
 				C457D27824F9429E000EB044 /* SampleBufferSource.swift in Sources */,
 				C4A0DC0324C6D83D00421EA6 /* ContentView.swift in Sources */,
+				C41786D4251CD46C002E3FA8 /* SystemDictionary.swift in Sources */,
 				C4A0DC2324C8497A00421EA6 /* LibraryView.swift in Sources */,
 				C4B2E29924CF45B90084B0E3 /* YourLibraryView.swift in Sources */,
 				C4B0447224D2BBA3001CBB25 /* Data.swift in Sources */,
@@ -564,9 +588,9 @@
 				C4A0DC1424C6D89F00421EA6 /* BackgroundImage.swift in Sources */,
 				C4CEC5F924FBCE64002E08B1 /* ProfileHost.swift in Sources */,
 				C457D27224F94247000EB044 /* SampleBufferPlayer.swift in Sources */,
-				C4B2E2A024CF46990084B0E3 /* MediaContentView.swift in Sources */,
 				C464E0DB250927C5005CA71F /* DataCollection.swift in Sources */,
 				C4A0DC1924C6D8E300421EA6 /* AudioContentDetail.swift in Sources */,
+				C4F206F8251B4AA800336803 /* QuestionSummary.swift in Sources */,
 				C4B2E29D24CF46140084B0E3 /* CategoryText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

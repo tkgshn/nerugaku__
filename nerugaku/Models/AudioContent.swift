@@ -16,6 +16,7 @@ struct AudioContent:   Codable, Identifiable {
     var allfavorite: Int
     //    再生するのにかかる時間（分）
     var alltime: Int
+    var allpharase: Int
     //    コンテンツのカテゴリー
     var category: Category //    入れ子（ネスト）になる
     //    お気に入りかどうか

@@ -42,7 +42,11 @@ struct HomeView: View {
 //                    Divider()
 //
 //                }
-//                    Future()
+                if #available(iOS 14.0, *) {
+                    Future()
+                } else {
+                   FavoritedRow()
+                }
 
                     
                     ForEach(categories.keys.sorted(), id: \.self) { key in

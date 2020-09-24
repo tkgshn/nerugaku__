@@ -67,8 +67,10 @@ struct PhraseRow: View {
     var audioContent: AudioContent
     var body: some View {
         //        Phraseが持っている個数分より多い数、ループを回すとクラッシュしてしまう
-        
-        ForEach(1..<3) { num in
+//        このままだとフレーズの数が追加された時にクラッシュする
+//        解決策：持っているフレーズの総数をどこかの関数化して、その数以下の取得をするようにする
+        //✅
+        ForEach(1..<audioContent.allpharase) { num in
             //                日本語を取得
             VStack(alignment: .leading) {
                 Text(self.audioContent.phrases[String(num)]!.japanese)

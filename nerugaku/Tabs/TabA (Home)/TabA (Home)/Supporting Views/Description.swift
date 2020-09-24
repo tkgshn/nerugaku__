@@ -13,7 +13,8 @@ struct Description: View {
     @EnvironmentObject var userData: UserData
     var audioContent: AudioContent
     
-    @State private var isShown: Bool = false
+    @State private var isAudioShown: Bool = false
+    @State private var isQuestionShown: Bool = false
     
     var audioContentIndex: Int {
         userData.audioContents.firstIndex(where: { $0.id == audioContent.id })!
@@ -25,6 +26,7 @@ struct Description: View {
     var body: some View {
         
         VStack {
+            
             
             VStack(alignment: .leading) {
                 //コンテンツの概要
@@ -88,9 +90,9 @@ struct Description: View {
                     .font(.system(size: 55.0, weight: .thin))
                     .foregroundColor(.gray)
                     .onTapGesture {
-                        self.isShown = true
+                        self.isAudioShown = true
                     }
-                    .sheet(isPresented: self.$isShown) {
+                    .sheet(isPresented: self.$isAudioShown) {
                         //モーダル遷移した後に表示するビュー
                         AudioPlayerView()
                     }
@@ -105,7 +107,7 @@ struct Description: View {
         }, label: {
             
             //                    問題数を取得
-            Text("問題を解く\n" + String(audioContent.alltime) + "単語")
+            Text("問題を解く\n" + String(audioContent.allpharase) + "単語")
                 
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 120.0)
@@ -113,6 +115,13 @@ struct Description: View {
                 .background(Color.green)
                 .foregroundColor(Color.white)
                 .cornerRadius(10)
+                .onTapGesture {
+                    self.isQuestionShown = true
+                }
+                .sheet(isPresented: self.$isQuestionShown) {
+                    //モーダル遷移した後に表示するビュー
+                    QuestionRootView(audioContent: audioContent)
+                }
         })
         .padding(.top)
         
