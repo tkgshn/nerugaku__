@@ -30,7 +30,7 @@ struct learningTime: View {
                     Text("分")
                 }
                 .padding(.vertical, 0.2)
-
+                
             }
             .padding(.bottom, 20.0)
             .frame(width: 120, height: 80)
@@ -62,7 +62,7 @@ struct learningCount: View {
                     Text("回")
                 }
                 .padding(.vertical, 0.2)
-
+                
             }
             .padding(.bottom, 20.0)
             .frame(width: 120, height: 80)
@@ -71,6 +71,7 @@ struct learningCount: View {
         }
     }
 }
+
 struct learningDay: View {
     var body: some View {
         HStack {
@@ -104,7 +105,6 @@ struct learningDay: View {
 }
 
 
-
 struct YouView: View {
     
     @State var showingProfile = false
@@ -125,16 +125,14 @@ struct YouView: View {
                     //                    この例なら、54.00が一番大きく・7.00が一番小さい
                     LineView(data: [8,23,54,32,12,37,7,23,43], legend: "睡眠記録")
                         .padding([.leading, .bottom, .trailing], 20.0)
-                    
-                    Group {
-                        HStack{
-                            PieChartView(data: [8,23,54,32], title: "学習済みカテゴリーの割合", dropShadow: false)
-                            Spacer()
-                            BarChartView(data: ChartData(points: [8,23,54,32,12,37,7,23,43]), title: "今週の勉強時間", form: ChartForm.medium, dropShadow: false)
-                        }
+                    Spacer()
+                    HStack{
+                        PieChartView(data: [8,23,54,32], title: "学習済みカテゴリーの割合", dropShadow: false)
+                        Spacer()
+                        BarChartView(data: ChartData(points: [8,23,54,32,12,37,7,23,43]), title: "今週の勉強時間", form: ChartForm.medium, dropShadow: false)
                     }
-                    .padding(.top, 300.0)
-                    .padding([.leading, .bottom, .trailing], 20.0)
+                    .padding(.horizontal)
+                    .padding(.top, 290)
                     
                     
                     
@@ -147,7 +145,7 @@ struct YouView: View {
                         learningDay()
                         Spacer()
                     } .padding([.leading, .bottom, .trailing], 10.0)
-                    
+                    .padding(.top, 10)
                     
                 }
             }
@@ -159,6 +157,7 @@ struct YouView: View {
         }
     }
 }
+
 
 
 

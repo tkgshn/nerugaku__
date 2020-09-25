@@ -78,11 +78,11 @@
 		C4CEC5F124FB2EE5002E08B1 /* 時刻.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4CEC5E724FB2EE5002E08B1 /* 時刻.mp3 */; };
 		C4CEC5F324FB3F78002E08B1 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEC5F224FB3F78002E08B1 /* AudioPlayerView.swift */; };
 		C4CEC5F924FBCE64002E08B1 /* ProfileHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEC5F824FBCE64002E08B1 /* ProfileHost.swift */; };
+		C4EEB8E2251D6B48006C9496 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = C4EEB8E1251D6B48006C9496 /* SwiftUICharts */; };
 		C4F206E525160B4000336803 /* QuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F206E425160B4000336803 /* QuestionsView.swift */; };
 		C4F206F8251B4AA800336803 /* QuestionSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F206F7251B4AA800336803 /* QuestionSummary.swift */; };
 		C4F206FD251B606B00336803 /* QuestionProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F206FC251B606B00336803 /* QuestionProgress.swift */; };
 		C4F20704251B680300336803 /* QuestionChoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F20703251B680300336803 /* QuestionChoices.swift */; };
-		C4F78A8124FAC47C007FE659 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = C4F78A8024FAC47C007FE659 /* SwiftUICharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,8 +170,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8ED22E624DBDB2000C752C8 /* QGrid in Frameworks */,
+				C4EEB8E2251D6B48006C9496 /* SwiftUICharts in Frameworks */,
 				C4080EB8250C2BDF004001C0 /* HealthKit.framework in Frameworks */,
-				C4F78A8124FAC47C007FE659 /* SwiftUICharts in Frameworks */,
 				C491B6D224FAC71C00B72F39 /* SwiftUIPager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,8 +529,8 @@
 			name = nerugaku;
 			packageProductDependencies = (
 				A8ED22E524DBDB2000C752C8 /* QGrid */,
-				C4F78A8024FAC47C007FE659 /* SwiftUICharts */,
 				C491B6D124FAC71C00B72F39 /* SwiftUIPager */,
+				C4EEB8E1251D6B48006C9496 /* SwiftUICharts */,
 			);
 			productName = nerugaku1;
 			productReference = C4A0DBFB24C6D83C00421EA6 /* nerugaku.app */;
@@ -562,8 +562,8 @@
 			mainGroup = C4A0DBF224C6D83C00421EA6;
 			packageReferences = (
 				A8ED22E424DBDB2000C752C8 /* XCRemoteSwiftPackageReference "QGrid" */,
-				C403AAF524FABD0C008B4334 /* XCRemoteSwiftPackageReference "ChartView" */,
 				C491B6D024FAC71C00B72F39 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
+				C4EEB8E0251D6B48006C9496 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = C4A0DBFC24C6D83C00421EA6 /* Products */;
 			projectDirPath = "";
@@ -868,20 +868,20 @@
 				minimumVersion = 0.1.4;
 			};
 		};
-		C403AAF524FABD0C008B4334 /* XCRemoteSwiftPackageReference "ChartView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.4;
-			};
-		};
 		C491B6D024FAC71C00B72F39 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.10.4;
+			};
+		};
+		C4EEB8E0251D6B48006C9496 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -897,9 +897,9 @@
 			package = C491B6D024FAC71C00B72F39 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
 			productName = SwiftUIPager;
 		};
-		C4F78A8024FAC47C007FE659 /* SwiftUICharts */ = {
+		C4EEB8E1251D6B48006C9496 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C403AAF524FABD0C008B4334 /* XCRemoteSwiftPackageReference "ChartView" */;
+			package = C4EEB8E0251D6B48006C9496 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
