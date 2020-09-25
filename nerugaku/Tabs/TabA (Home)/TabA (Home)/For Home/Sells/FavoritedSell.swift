@@ -23,12 +23,13 @@ struct FavoritedSell: View {
                 
                 }
                 Text("お気に入り")
+                    .font(.callout)
                     .fontWeight(.bold)
                     .foregroundColor(Color(UIColor.label))
                     .padding(.leading, 10.0)
                 Spacer()
             }
-            .frame(width: 190, height: 60)
+            .frame(width: 170, height: 60)
             .background(Color(UIColor.systemGray6))
         }
     }
@@ -38,7 +39,7 @@ struct FavoritedSell: View {
 struct FavoritedSell_Previews: PreviewProvider {
     static var previews: some View {
         FavoritedSell()
-            .previewLayout(.fixed(width: 190, height: 60))
+            .previewLayout(.fixed(width: 170, height: 60))
             .environmentObject(UserData())
     }
 }

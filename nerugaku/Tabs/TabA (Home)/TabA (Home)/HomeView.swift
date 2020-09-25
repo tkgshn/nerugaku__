@@ -5,7 +5,6 @@
 //  Created by Shunsuke Takagi on 2020/07/15.
 //  Copyright © 2020 Shunsuke Takagi. All rights reserved.
 //
-
 import SwiftUI
 
 struct HomeView: View {
@@ -61,16 +60,14 @@ struct HomeView: View {
                 
                 
                     
-                    Section{
                                 NavigationLink(destination: AudioContentList()) {
                                     HStack {
                                         Text("See All")
-                                        
                                         Spacer()
                                     }
+                                    .padding(.vertical, 10.0)
                                     .padding(.horizontal)
-                                }}
-                
+                                }
                 
                 //                               Listの最後にある”全て見る”を担う部分
 //                                NavigationLink(destination: AllContent()

@@ -22,6 +22,7 @@ struct AudioContentList: View {
                 
             }
         }
+        
         .navigationBarTitle(Text("すべて"))
         .environmentObject(UserData())
     }

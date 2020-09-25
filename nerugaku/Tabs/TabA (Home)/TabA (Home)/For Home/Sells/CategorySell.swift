@@ -26,13 +26,14 @@ struct CategorySell: View {
                     .frame(width: 60.0, height: 60.0)
                 
                 Text(self.categoryName)
+                    .font(.callout)
                     .fontWeight(.bold)
                     .foregroundColor(Color(UIColor.label))
                     .padding(.leading, 10.0)
                 Spacer()
             }
         }
-        .frame(width: 190, height: 60)
+        .frame(width: 170, height: 60)
         .background(Color(UIColor.systemGray6))
     }
 }
@@ -44,7 +45,7 @@ struct CategorySell_Previews: PreviewProvider {
     static var previews: some View {
         CategorySell(categoryName: audioContentData[0].category.rawValue,
                        items: Array(audioContentData.prefix(4)))
-            .previewLayout(.fixed(width: 190, height: 60))
+            .previewLayout(.fixed(width: 170, height: 60))
             .environmentObject(UserData())
         
     }
