@@ -28,6 +28,7 @@
 		C4178723251D57D9002E3FA8 /* CategorySell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4178722251D57D9002E3FA8 /* CategorySell.swift */; };
 		C417872F251D58D3002E3FA8 /* FavoritedSell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C417872E251D58D3002E3FA8 /* FavoritedSell.swift */; };
 		C4178732251D5911002E3FA8 /* FuturedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4178731251D5911002E3FA8 /* FuturedCollection.swift */; };
+		C42F9C28251DFC880082E648 /* FuturedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42F9C27251DFC880082E648 /* FuturedRow.swift */; };
 		C43FD3D424CAFC0200430C3B /* YouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FD3D324CAFC0200430C3B /* YouView.swift */; };
 		C43FD3D624CB059A00430C3B /* AudioContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FD3D524CB059A00430C3B /* AudioContentRow.swift */; };
 		C457D26224F940A4000EB044 /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457D26124F940A4000EB044 /* ControlsViewController.swift */; };
@@ -107,6 +108,7 @@
 		C4178722251D57D9002E3FA8 /* CategorySell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySell.swift; sourceTree = "<group>"; };
 		C417872E251D58D3002E3FA8 /* FavoritedSell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedSell.swift; sourceTree = "<group>"; };
 		C4178731251D5911002E3FA8 /* FuturedCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuturedCollection.swift; sourceTree = "<group>"; };
+		C42F9C27251DFC880082E648 /* FuturedRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuturedRow.swift; sourceTree = "<group>"; };
 		C43FD3D324CAFC0200430C3B /* YouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouView.swift; sourceTree = "<group>"; };
 		C43FD3D524CB059A00430C3B /* AudioContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentRow.swift; sourceTree = "<group>"; };
 		C457D26124F940A4000EB044 /* ControlsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				C417871E251D57B4002E3FA8 /* CategoryRow.swift */,
+				C42F9C27251DFC880082E648 /* FuturedRow.swift */,
 				C4178731251D5911002E3FA8 /* FuturedCollection.swift */,
 				C49D17B2251D5CD200BD7A51 /* Lists */,
 				C4178734251D5939002E3FA8 /* Sells */,
@@ -658,6 +661,7 @@
 				C4CEC5F924FBCE64002E08B1 /* ProfileHost.swift in Sources */,
 				C457D27224F94247000EB044 /* SampleBufferPlayer.swift in Sources */,
 				C464E0DB250927C5005CA71F /* DataCollection.swift in Sources */,
+				C42F9C28251DFC880082E648 /* FuturedRow.swift in Sources */,
 				C4A0DC1924C6D8E300421EA6 /* AudioContentDetail.swift in Sources */,
 				C4F206F8251B4AA800336803 /* QuestionSummary.swift in Sources */,
 				C4B2E29D24CF46140084B0E3 /* CategoryText.swift in Sources */,
