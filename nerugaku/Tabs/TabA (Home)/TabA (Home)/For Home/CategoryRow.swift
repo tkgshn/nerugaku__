@@ -95,6 +95,7 @@ struct CategoryRow_Previews: PreviewProvider {
                  items: Array(audioContentData.prefix(4))
         )
         .environmentObject(UserData())
+        .previewLayout(.sizeThatFits)
         
     }
 }

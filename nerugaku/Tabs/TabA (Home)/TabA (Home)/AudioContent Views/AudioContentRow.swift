@@ -34,3 +34,10 @@ struct AudioContentRow: View {
     }
 }
 
+
+struct AudioContentRow_Previews: PreviewProvider {
+    static var previews: some View {
+        AudioContentRow(audioContent: audioContentData[0])
+            .previewLayout(.sizeThatFits)
+    }
+}

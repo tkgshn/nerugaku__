@@ -39,7 +39,7 @@ struct FavoritedSell: View {
 struct FavoritedSell_Previews: PreviewProvider {
     static var previews: some View {
         FavoritedSell()
-            .previewLayout(.fixed(width: 170, height: 60))
+            .previewLayout(.sizeThatFits)
             .environmentObject(UserData())
     }
 }

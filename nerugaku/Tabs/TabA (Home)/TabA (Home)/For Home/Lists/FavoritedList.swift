@@ -38,5 +38,6 @@ struct FavoritedList_Previews: PreviewProvider {
             }
         }
         .environmentObject(UserData())
+        
     }
 }

@@ -60,6 +60,7 @@ struct BackgroundImage_Previews: PreviewProvider {
         
         //        0番地点のデータを表示
         BackgroundImage(audioContent: audioContentData[1])
+            .previewLayout(.sizeThatFits)
         
         
     }

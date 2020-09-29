@@ -42,16 +42,17 @@ struct CheckboxField: View {
         }) {
             HStack(alignment: .center, spacing: 10) {
                 Image(systemName: self.isMarked ? "checkmark.square" : "square")
-                    .renderingMode(.original)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(Color.primary)
+//                    .renderingMode(.original)
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
                     .frame(width: self.size, height: self.size)
                 //                Text(label)
                 //                    .font(Font.system(size: size))
                 //                Spacer()
             }.foregroundColor(self.color)
         }
-        .foregroundColor(Color.white)
+        .foregroundColor(Color.primary)
     }
 }
 
@@ -97,55 +98,7 @@ struct QuestionSummaryText: View {
     }
 }
 
-//struct QuestionSummaryRetryButton: View {
-//        @State var isShowSubViw = false
-//    var body: some View {
-//
-//        HStack {
-//
-//            //            学習履歴
-//            Button(action: {
-//                print("Share tapped!")
-//            }) {
-//                VStack {
-//                    Image("chart")
-//                        .resizable()
-//                        .frame(width: 27.0, height: 27.0)
-//                    Text("学習履歴")
-//                        .font(.footnote)
-//                        .foregroundColor(Color.black)
-//                        .padding(.top, -5.0)
-//                }
-//                .padding(.vertical, 10.0)
-//                .padding(.horizontal, 6.0)
-//                .foregroundColor(.gray)
-//                .overlay(
-//                    RoundedRectangle(cornerRadius: 5)
-//                        .stroke(Color.orange, lineWidth: 2)
-//                )
-//            }
-//            Button(action: {
-//                withAnimation() {
-//                    self.isShowSubViw.toggle()
-//                }
-//            }) {
-//                VStack {
-//                    Text("単語の復習へ")
-//                        .font(.system(size: 20))
-//                        //                        .font(.headline)
-//                        .fontWeight(.black)
-//                        .foregroundColor(Color.white)
-//                }
-//                .padding(.vertical, 22.0)
-//                .padding(.horizontal, 80.0)
-//                .background(Color.orange)
-//                .cornerRadius(5)
-//
-//            }
-//
-//        }
-//    }
-//}
+
 
 //MARK:- Body
 struct QuestionSummary: View {
@@ -169,12 +122,13 @@ struct QuestionSummary: View {
                             print("Share tapped!")
                         }) {
                             VStack {
-                                Image("chart")
+                                Image(systemName: "chart.bar")
                                     .resizable()
                                     .frame(width: 27.0, height: 27.0)
+                                    .foregroundColor(Color.primary)
                                 Text("学習履歴")
                                     .font(.footnote)
-                                    .foregroundColor(Color.black)
+                                    .foregroundColor(Color.primary)
                                     .padding(.top, -5.0)
                             }
                             .padding(.vertical, 10.0)
@@ -211,10 +165,10 @@ struct QuestionSummary: View {
                                 //                        ここからボタン
                                 Button(action: {
                                 })
-                                    {
+                                {
                                     VStack{
                                         Text("詳細")
-//                                        Text(String("word"))
+                                            //                                        Text(String("word"))
                                             .fontWeight(.bold)
                                             .foregroundColor(Color.white)
                                     }
@@ -223,17 +177,17 @@ struct QuestionSummary: View {
                                     .background(Color.green)
                                     .font(.headline)
                                     .mask(Circle()
-                                    .frame(width: 55.0, height: 55.0))
-//                                    このボタンをタップで辞書の表示を管理するトグルをオンにする
+                                            .frame(width: 55.0, height: 55.0))
+                                    //                                    このボタンをタップで辞書の表示を管理するトグルをオンにする
                                     .onTapGesture {
                                         self.isDictionaryShown = true
-
+                                        
                                     }
-                                
+                                    
                                     .sheet(isPresented: self.$isDictionaryShown) {
                                         //モーダル遷移した後に表示するビュー
                                         
-                                            SystemDictionary(word: self.audioContent.phrases[String(num)]!.english)
+                                        SystemDictionary(word: self.audioContent.phrases[String(num)]!.english)
                                         
                                     }
                                 }
@@ -244,7 +198,7 @@ struct QuestionSummary: View {
                                 
                                 VStack(alignment: .leading) {
                                     Text(self.audioContent.phrases[String(num)]!.english)
-                                        
+                                    
                                     Text(self.audioContent.phrases[String(num)]!.japanese)
                                 }
                                 .padding(.leading, 20.0)
@@ -280,7 +234,10 @@ struct QuestionSummary: View {
 
 struct QuestionSummary_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionSummary(audioContent: audioContentData[0])
+        Group {
+            QuestionSummary(audioContent: audioContentData[0]).colorScheme(.light)
+            QuestionSummary(audioContent: audioContentData[0]).colorScheme(.dark)
+        }
     }
 }
 

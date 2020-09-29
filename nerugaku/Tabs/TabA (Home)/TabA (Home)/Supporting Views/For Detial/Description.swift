@@ -147,6 +147,7 @@ struct Description_Previews: PreviewProvider {
         let userData = UserData()
         return Description(audioContent: userData.audioContents[0])
             .environmentObject(UserData())
+            .previewLayout(.sizeThatFits)
         
     }
 }

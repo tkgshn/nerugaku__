@@ -61,8 +61,10 @@ struct FuturedCollection_Previews: PreviewProvider {
         if #available(iOS 14.0, *) {
             FuturedCollection()
                 .environmentObject(UserData())
+                .previewLayout(.sizeThatFits)
         } else {
             FavoritedSell()
+                .previewLayout(.sizeThatFits)
         }
     }
 }
