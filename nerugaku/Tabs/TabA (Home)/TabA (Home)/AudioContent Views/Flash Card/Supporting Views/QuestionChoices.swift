@@ -8,6 +8,33 @@
 
 import SwiftUI
 
+// MARK: - 回答の選択肢を生成
+//表示中の単語を除く同じシーンの中からランダムで4つ表示（これが選択肢になる）（日本語を表示）
+//struct ChoiceGeneration: View {
+//    var audioContent: AudioContent
+//
+//    func addDic() {
+//        var dic = ForEach(1..<audioContent.allpharase+1) { num in
+//            self.audioContent.phrases[String(num)]!.japanese
+//        }
+//    }
+//
+//    var body: some View {
+//        VStack {
+//
+//            Text(audioContent.)
+//        }
+//    }
+//}
+//
+//struct QuestionChoices_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ChoiceGeneration(audioContent: audioContentData[0])
+//            .previewLayout(.sizeThatFits)
+//    }
+//}
+
+
 // MARK: - BoxView
 //選択肢は同じid内のphrasesをランダムに取得したものにする
 struct BoxView: View {
@@ -15,6 +42,9 @@ struct BoxView: View {
     let color: Color
     let boxType: BoxType
     //    フレーズを選択肢として辞書に入れる
+//        同じaudioContent内のJapaneseを選択肢として辞書にインポート
+//    var audioContent: AudioContent
+    
     let choiceDic = ["example text A", "example text B", "example text c", "TestD"]
     var body: some View {
         //        要素の中からランダムに取得
@@ -65,3 +95,4 @@ struct SingleSelectableBoxView: View {
         }
     }
 }
+

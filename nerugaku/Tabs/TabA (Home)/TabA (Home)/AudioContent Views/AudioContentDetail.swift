@@ -76,17 +76,19 @@ struct PhraseRow: View {
 //        解決策：持っているフレーズの総数をどこかの関数化して、その数以下の取得をするようにする
         //✅
 //        VStack {
-        ForEach(1..<audioContent.allpharase) { num in
+        ForEach(1..<audioContent.phrases.count) { num in
 //            Section {
             Divider()
             //                日本語を取得
             VStack(alignment: .center) {
+//                Text(self.audioContent.phrases[num]["japanese"]!)
                 Text(self.audioContent.phrases[String(num)]!.japanese)
                     .padding(.top, 10)
 //                    .padding(.vertical)
             //                英語を取得
                 Spacer()
                 Text(self.audioContent.phrases[String(num)]!.english)
+//                Text(self.audioContent.phrases[num]["english"]!)
                     .padding(.bottom, 10)
 //                    .padding(.vertical)
             }

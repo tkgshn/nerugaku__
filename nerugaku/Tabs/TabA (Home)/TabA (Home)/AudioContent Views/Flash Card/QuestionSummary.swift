@@ -165,7 +165,14 @@ struct QuestionSummary: View {
                         
                     }
                     
-                    ForEach(1..<audioContent.allpharase) { num in
+                    
+//                    ForEach(0..<phrases.count) { n in
+//        //                [取得したい行数][取得したいキー]を指定
+//                        Text(phrases[n]["japanese"]!)
+//                        Text(phrases[n]["english"]!)
+//                    }
+                    
+                    ForEach(1..<audioContent.phrases.count) { num in
                         Group {
                             HStack {
                                 //                        ここからボタン
@@ -204,6 +211,8 @@ struct QuestionSummary: View {
                                 
                                 VStack(alignment: .leading) {
                                     Text(self.audioContent.phrases[String(num)]!.english)
+//                                    Text(self.audioContent.phrases[num]["english"]!)
+//                                    Text(self.audioContent.phrases[num]["japanese"]!)
                                     
                                     Text(self.audioContent.phrases[String(num)]!.japanese)
                                 }

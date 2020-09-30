@@ -44,6 +44,8 @@ struct QuestionRootView: View {
                     .padding(.bottom, 50.0)
                     Spacer()
                     VStack(alignment: .center) {
+//                        問題文の表示
+//                        Text(audioContent.phrases[currentQuestionIndex]["english"]!)
                         Text(self.audioContent.phrases[String(currentQuestionIndex)]!.english)
                             .font(.title)
                             .multilineTextAlignment(.center)
