@@ -56,7 +56,7 @@ struct QuestionRootView: View {
                     
                     Spacer()
                     
-                    SingleSelectableBoxView(selectedBox: $viewModel.selectedBox)
+                    SingleSelectableBoxView(selectedBox: $viewModel.selectedBox, currentQuestionIndex: $currentQuestionIndex)
                     Spacer()
                     
                     VStack{
@@ -74,6 +74,7 @@ struct QuestionRootView: View {
                             Button(action: {
                                 sliderValue += 10 / self.maxValue
                                 currentQuestionIndex += 1
+                                
                             }) {
                                 Text("次の問題に進む")
                             }

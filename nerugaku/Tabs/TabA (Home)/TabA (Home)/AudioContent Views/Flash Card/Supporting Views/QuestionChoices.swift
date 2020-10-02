@@ -16,8 +16,9 @@ struct BoxView: View {
     @Binding var selectedBox: BoxType
     let color: Color
     let boxType: BoxType
-    //        同じaudioContent内のJapaneseを選択肢として辞書にインポート
-    //    var audioContent: AudioContent
+    
+    //    現在表示している問題を共通化する
+    @Binding var currentQuestionIndex: Int
     
     //  辞書を作成
     let Dic = [
@@ -29,45 +30,22 @@ struct BoxView: View {
         ["japanese": "彼ら", "english": "they both", "phraseAudioName"  : "国と言語"],
     ]
     
-    //    {
-    //        // まずは辞書からjapaneseだけを抽出
-    //        DicArry = Dic.map(){$0["japanese"]!} // この時点の中身 ["私", "私とあなた", "私たち", "彼", "彼と彼女", "彼ら"]
-    //
-    //        // DicArryをシャッフルする
-    //        ShuffledDicArry = DicArry.shuffled() // シャッフルの位置は毎回変化するが、["彼ら", "私たち", "彼と彼女", "彼", "私とあなた", "私"]のようになる
-    //
-    //        // 3つだけ取得する
-    //        // この際は辞書のindexが被っていないので、同じものが選択肢になることはない
-    //
-    //        //        print("①　\(ShuffledDicArry[0])")
-    //        //        print("②　\(ShuffledDicArry[1])")
-    //        //        print("③　\(ShuffledDicArry[2])")
+    
+    //    // 数字でDicの番号を指定して、その中のenglishを吐き出す関数
+    //    func getQuestion(_ index: Int) -> String {
+    //        let question = Dic[index]["english"]!
+    //        return question
     //    }
     
+    // 数字でDicのリスト番号を指定して、その中のjapaneseを吐き出す関数
+    func getJapaneseQuestion(_ index: Int) -> String {
+        let japaneseWord = Dic[index]["japanese"]!
+        return japaneseWord
+    }
     
     var body: some View {
-        //        要素の中からランダムに取得
         
-        
-        
-        //        Text(ShuffledDicArry[0])
-        
-        
-        //            Button("tap") {
-        //                DicArry = self.Dic.map(){$0["japanese"]!}
-        //                ShuffledDicArry = self.DicArry.shuffled()
-        //            }
-        //        ForEach (0..<6) { n in
-        //            let japanese = [(phrases[n]["japanese"])!]
-        //            let japaneseText = ("\(japanese.randomElement()!)")
-        //
-        //        }
-        //        Text(choiceDic.map{$0["japanese"]!})
-        Text("test")
-            //        ForEach (0..<6) { n in
-            //            Text(choiceDic[0]["japanese"]!)
-            //        }
-            //        上記の辞書の中から、ランダムで3つほど選択する
+        Text(getJapaneseQuestion(currentQuestionIndex-1)) // これで絶対答えのが表示されてるようになる？
             .font(.headline)
             .padding()
             .background(color)
@@ -79,6 +57,7 @@ struct BoxView: View {
             .border(Color.black, width: selectedBox == boxType ? 4 : 0)
     }
 }
+
 
 
 
@@ -108,12 +87,14 @@ final class SingleSelectableBoxViewModel: ObservableObject {
 // MARK: - SingleSelectableBoxView
 struct SingleSelectableBoxView: View {
     @Binding var selectedBox: BoxType
+    @Binding var currentQuestionIndex: Int
+    
     var body: some View {
         VStack {
             
-            BoxView(selectedBox: $selectedBox, color: .red, boxType: .red)
-            BoxView(selectedBox: $selectedBox, color: .green, boxType: .green)
-            BoxView(selectedBox: $selectedBox, color: .blue, boxType: .blue)
+            BoxView(selectedBox: $selectedBox, color: .red, boxType: .red, currentQuestionIndex: $currentQuestionIndex)
+            BoxView(selectedBox: $selectedBox, color: .green, boxType: .green, currentQuestionIndex: $currentQuestionIndex)
+            BoxView(selectedBox: $selectedBox, color: .blue, boxType: .blue, currentQuestionIndex: $currentQuestionIndex)
             
         }
     }
