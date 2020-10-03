@@ -20,6 +20,7 @@ struct QuestionRootView: View {
     @State var currentQuestionIndex:Int = 1
     
     @ObservedObject var viewModel = SingleSelectableBoxViewModel()
+    @Binding var getChoicesNumber: Int
     
     var body: some View {
         ZStack {
@@ -57,7 +58,7 @@ struct QuestionRootView: View {
                     
                     Spacer()
                     //                    選択肢のView
-                    SingleSelectableBoxView(selectedBox: $viewModel.selectedBox, currentQuestionIndex: $currentQuestionIndex)
+                    SingleSelectableBoxView(selectedBox: $viewModel.selectedBox, currentQuestionIndex: $currentQuestionIndex, getChoicesNumber: self.$getChoicesNumber)
                     
                     Spacer()
                     //                    「次に進む」のボタンの要素
@@ -111,8 +112,22 @@ struct QuestionSubView: View {
 
 
 // MARK: - Preview
+//struct QuestionRootView_Previews: PreviewProvider {
+//    @State var getChoicesNumber: Int = 0
+//    static var previews: some View {
+//        QuestionRootView(audioContent: audioContentData[0], getChoicesNumber: self.$getChoicesNumber)
+//    }
+//}
+
 struct QuestionRootView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionRootView(audioContent: audioContentData[0])
+        QuestionRootViewPreviews()
+    }
+    struct QuestionRootViewPreviews : View{
+        @State var getChoicesNumber: Int = 0
+        var body: some View{
+//            ここで辞書にString型で引数を設定してあげる
+            QuestionRootView(audioContent: audioContentData[0], getChoicesNumber: self.$getChoicesNumber)
+        }
     }
 }
