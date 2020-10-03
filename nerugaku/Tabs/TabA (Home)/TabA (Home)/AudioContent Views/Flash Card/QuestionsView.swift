@@ -117,7 +117,7 @@ struct QuestionSubView: View {
 //    static var previews: some View {
 //        QuestionRootView(audioContent: audioContentData[0], getChoicesNumber: self.$getChoicesNumber)
 //    }
-//}
+//}w
 
 struct QuestionRootView_Previews: PreviewProvider {
     static var previews: some View {

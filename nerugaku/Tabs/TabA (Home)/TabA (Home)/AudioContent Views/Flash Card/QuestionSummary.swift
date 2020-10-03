@@ -124,9 +124,7 @@ struct QuestionSummary: View {
                     HStack {
                         
                         //            学習履歴
-                        Button(action: {
-                            print("Share tapped!")
-                        }) {
+                        Button() {
                             VStack {
                                 Image(systemName: "chart.bar")
                                     .resizable()
@@ -164,24 +162,16 @@ struct QuestionSummary: View {
                         }
                         
                     }
-                    
-                    
-//                    ForEach(0..<phrases.count) { n in
-//        //                [取得したい行数][取得したいキー]を指定
-//                        Text(phrases[n]["japanese"]!)
-//                        Text(phrases[n]["english"]!)
-//                    }
+
                     
                     ForEach(1..<audioContent.phrases.count) { num in
                         Group {
                             HStack {
                                 //                        ここからボタン
-                                Button(action: {
-                                })
+                                Button()
                                 {
                                     VStack{
                                         Text("詳細")
-                                            //                                        Text(String("word"))
                                             .fontWeight(.bold)
                                             .foregroundColor(Color.white)
                                     }
@@ -190,7 +180,7 @@ struct QuestionSummary: View {
                                     .background(Color.green)
                                     .font(.headline)
                                     .mask(Circle()
-                                            .frame(width: 55.0, height: 55.0))
+                                    .frame(width: 55.0, height: 55.0))
                                     //                                    このボタンをタップで辞書の表示を管理するトグルをオンにする
                                     .onTapGesture {
                                         self.isDictionaryShown = true
@@ -199,7 +189,6 @@ struct QuestionSummary: View {
                                     
                                     .sheet(isPresented: self.$isDictionaryShown) {
                                         //モーダル遷移した後に表示するビュー
-                                        
                                         SystemDictionary(word: self.audioContent.phrases[String(num)]!.english)
                                         
                                     }
@@ -211,8 +200,6 @@ struct QuestionSummary: View {
                                 
                                 VStack(alignment: .leading) {
                                     Text(self.audioContent.phrases[String(num)]!.english)
-//                                    Text(self.audioContent.phrases[num]["english"]!)
-//                                    Text(self.audioContent.phrases[num]["japanese"]!)
                                     
                                     Text(self.audioContent.phrases[String(num)]!.japanese)
                                 }

@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import UIKit
+//import UIKit
 
 struct Description: View {
     @EnvironmentObject var userData: UserData
@@ -19,16 +19,10 @@ struct Description: View {
     var audioContentIndex: Int {
         userData.audioContents.firstIndex(where: { $0.id == audioContent.id })!
     }
-    
-    
-    
-    
+
     var body: some View {
-        
         VStack {
-            
-            
-            VStack(alignment: .leading) {
+//            VStack(alignment: .leading) {
                 //コンテンツの概要
                 HStack {
                     Text(audioContent.description)
@@ -36,22 +30,18 @@ struct Description: View {
                         .multilineTextAlignment(.leading)
                         .lineLimit(5)
                     
-                }
-                HStack (alignment: .top) {
+//                }
+//                HStack (alignment: .top) {
                     Text(String(audioContent.allfavorite) + "いいね・" + String(audioContent.alltime) + "分")
                         .foregroundColor(Color(UIColor.secondaryLabel))
-//                        .multilineTextAlignment(.leading)
                     Spacer()
                 }
                 .padding(.top)
-            }.padding()
+//            }.padding()
             
             
             //            ここから操作系のやつ、横並び
             HStack(alignment: .center) {
-                //                    Image(systemName: "heart")
-                //                        .padding(.trailing, 10.0)
-                //                        .font(.system(size: 35.0, weight: .thin))
                 
                 //                    ここからいいね形の処理
                 Button(action: {
@@ -74,16 +64,15 @@ struct Description: View {
                 //                    ここまで
                 
                 
-                
-                //                    ここから他のアクション
-                Image(systemName: "arrow.down.circle")
-                    .padding(.horizontal, 3.0)
-                    .font(.system(size: 35.0, weight: .thin))
-                Image(systemName: "ellipsis")
-                    .padding(.horizontal, 13.0)
-                    .font(.system(size: 35.0, weight: .thin))
-                Spacer()
-                
+               
+                    //                    ここから他のアクション
+                    Image(systemName: "arrow.down.circle")
+                        .padding(.horizontal, 3.0)
+                        .font(.system(size: 35.0, weight: .thin))
+                    Image(systemName: "ellipsis")
+                        .padding(.horizontal, 13.0)
+                        .font(.system(size: 35.0, weight: .thin))
+                    Spacer()
                 
                 
                 //TextやImageをタップした時にトリガーする方法
@@ -104,39 +93,38 @@ struct Description: View {
                 
             }
             .padding([.leading, .trailing])
-        
-        
-        //            問題を解くボタンを追加
-        Button(action: {
-        }, label: {
             
-            //                    問題数を取得
-            if #available(iOS 14.0, *) {
-                Text("問題を解く\n" + String(audioContent.allpharase) + "単語")
-                    .font(.title3)
-                    
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 120.0)
-                    .frame(height: 55.0)
-                    .background(Color(UIColor.systemGray3))
-                    .foregroundColor(Color.white)
-                    .cornerRadius(10)
-                    .onTapGesture {
-                        self.isQuestionShown = true
-                    }
-                    .sheet(isPresented: self.$isQuestionShown) {
-                        //モーダル遷移した後に表示するビュー
-                        QuestionRootView(audioContent: audioContent)
-                    }
-            } else {
-                // Fallback on earlier versions
-            }
-        })
-        .padding(.top)
-        
+            
+            //            問題を解くボタンを追加
+            Button(action: {
+            }, label: {
+                
+                //                    問題数を取得
+                if #available(iOS 14.0, *) {
+                    Text("問題を解く\n" + String(audioContent.allpharase) + "単語")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 120.0)
+                        .frame(height: 55.0)
+                        .background(Color(UIColor.systemGray3))
+                        .foregroundColor(Color.white)
+                        .cornerRadius(10)
+                        .onTapGesture {
+                            self.isQuestionShown = true
+                        }
+                        .sheet(isPresented: self.$isQuestionShown) {
+                            //モーダル遷移した後に表示するビュー
+                            QuestionRootView(audioContent: audioContent)
+                        }
+                } else {
+                    Text("its not support under iOS14")
+                }
+            })
+            .padding(.top)
+            
+        }
     }
-}
 }
 
 
