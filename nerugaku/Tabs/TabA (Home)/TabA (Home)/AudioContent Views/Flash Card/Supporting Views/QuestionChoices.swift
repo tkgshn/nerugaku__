@@ -72,12 +72,89 @@ struct BoxView: View {
             .padding()
             //        selectedBoxがredだったら枠線を表示
             .border(Color.black, width: selectedBox == boxType ? 4 : 0)
-//            .onAppear { //　このViewを新規で開いた際に選択中のものを初期化する
-//                self.selectedBox = .unknown
-//            }
-        
+    }
+}
+struct BoxView2: View {
+    @Binding var selectedBox: BoxType
+    let color: Color
+    let boxType: BoxType
+    
+    //    現在表示している問題を共通化する
+    @Binding var currentQuestionIndex: Int
+    
+    //  辞書を作成
+    let Dic = [
+        ["japanese": "私", "english": "I", "phraseAudioName"  : "人称"],
+        ["japanese": "私とあなた", "english": "I and You", "phraseAudioName"  : "国と言語"],
+        ["japanese": "私たち", "english": "both of us", "phraseAudioName"  : "人称"],
+        ["japanese": "彼", "english": "he", "phraseAudioName"  : "国と言語"],
+        ["japanese": "彼と彼女", "english": "he and she", "phraseAudioName"  : "人称"],
+        ["japanese": "彼ら", "english": "they both", "phraseAudioName"  : "国と言語"],
+    ]
+    
+    
+    // 数字でDicのリスト番号を指定して、その中のjapaneseを吐き出す関数
+    func getJapaneseQuestion(_ index: Int) -> String {
+        let japaneseWord = Dic[index]["japanese"]!
+        return japaneseWord
     }
     
+    var body: some View {
+        // currentQuestionIndexがもともと1から始まっているので、ここで引いてあげなきゃいけない
+        Text(getJapaneseQuestion(currentQuestionIndex)) // これで絶対答えのが表示されてるようになる？
+            .font(.headline)
+            .padding()
+            .background(color)
+            .cornerRadius(10)
+            //        onTapGestureでタップしたらviewModelのselectedBoxに.redを代入し、赤いViewが選択されたことを表現
+            .onTapGesture {
+                self.selectedBox = self.boxType
+            }
+            .padding()
+            //        selectedBoxがredだったら枠線を表示
+            .border(Color.black, width: selectedBox == boxType ? 4 : 0)
+    }
+}
+struct BoxView3: View {
+    @Binding var selectedBox: BoxType
+    let color: Color
+    let boxType: BoxType
+    
+    //    現在表示している問題を共通化する
+    @Binding var currentQuestionIndex: Int
+    
+    //  辞書を作成
+    let Dic = [
+        ["japanese": "私", "english": "I", "phraseAudioName"  : "人称"],
+        ["japanese": "私とあなた", "english": "I and You", "phraseAudioName"  : "国と言語"],
+        ["japanese": "私たち", "english": "both of us", "phraseAudioName"  : "人称"],
+        ["japanese": "彼", "english": "he", "phraseAudioName"  : "国と言語"],
+        ["japanese": "彼と彼女", "english": "he and she", "phraseAudioName"  : "人称"],
+        ["japanese": "彼ら", "english": "they both", "phraseAudioName"  : "国と言語"],
+    ]
+    
+    
+    // 数字でDicのリスト番号を指定して、その中のjapaneseを吐き出す関数
+    func getJapaneseQuestion(_ index: Int) -> String {
+        let japaneseWord = Dic[index]["japanese"]!
+        return japaneseWord
+    }
+    
+    var body: some View {
+        // currentQuestionIndexがもともと1から始まっているので、ここで引いてあげなきゃいけない
+        Text(getJapaneseQuestion(currentQuestionIndex+1)) // これで絶対答えのが表示されてるようになる？
+            .font(.headline)
+            .padding()
+            .background(color)
+            .cornerRadius(10)
+            //        onTapGestureでタップしたらviewModelのselectedBoxに.redを代入し、赤いViewが選択されたことを表現
+            .onTapGesture {
+                self.selectedBox = self.boxType
+            }
+            .padding()
+            //        selectedBoxがredだったら枠線を表示
+            .border(Color.black, width: selectedBox == boxType ? 4 : 0)
+    }
 }
 
 
@@ -90,13 +167,10 @@ struct SingleSelectableBoxView: View {
         VStack {
             
             BoxView(selectedBox: $selectedBox, color: .red, boxType: .red, currentQuestionIndex: $currentQuestionIndex)
-            BoxView(selectedBox: $selectedBox, color: .green, boxType: .green, currentQuestionIndex: $currentQuestionIndex)
-            BoxView(selectedBox: $selectedBox, color: .blue, boxType: .blue, currentQuestionIndex: $currentQuestionIndex)
+            BoxView2(selectedBox: $selectedBox, color: .green, boxType: .green, currentQuestionIndex: $currentQuestionIndex)
+            BoxView3(selectedBox: $selectedBox, color: .blue, boxType: .blue, currentQuestionIndex: $currentQuestionIndex)
             
         }
-//        .onAppear { //　このViewを新規で開いた際に選択中のものを初期化する
-//            self.selectedBox = .unknown
-//        }
     }
     
 }
