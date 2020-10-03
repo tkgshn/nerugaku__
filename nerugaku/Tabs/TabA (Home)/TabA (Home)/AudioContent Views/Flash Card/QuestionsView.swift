@@ -28,43 +28,45 @@ struct QuestionRootView: View {
                 QuestionSubView()
             } else {
                 VStack {
-                    
+                    //                    上部の進捗を表示するバー
                     ProgressBar(value: $sliderValue.wrappedValue + 1,
                                 maxValue: Double(audioContent.allpharase),
                                 foregroundColor: .green)
                         .frame(height: 10)
                         .padding(30)
+                    
                     Spacer()
-                    HStack {
-                        //                現在の位置を整数で表示
-                        Text(String(currentQuestionIndex))
+                    //                    進捗を数値でも表示
+                    HStack {                        Text(String(currentQuestionIndex))
                         Text("/")
                         Text(String(audioContent.allpharase))
                     }
                     .padding(.bottom, 50.0)
+                    
                     Spacer()
+                    //                    問題文を表示
                     VStack(alignment: .center) {
-//                        問題文の表示
-//                        Text(audioContent.phrases[currentQuestionIndex]["english"]!)
                         Text(self.audioContent.phrases[String(currentQuestionIndex)]!.english)
                             .font(.title)
                             .multilineTextAlignment(.center)
                     }
                     .padding(.vertical)
-//                    Text("Selected box is \(viewModel.selectedBox.rawValue)")
-//                        .padding(.top)
+                    //                    現在選択しているものを表示
+                    Text("Selected box is \(viewModel.selectedBox.rawValue)")
+                        .padding(.top)
                     
                     Spacer()
-                    
+                    //                    選択肢のView
                     SingleSelectableBoxView(selectedBox: $viewModel.selectedBox, currentQuestionIndex: $currentQuestionIndex)
-                    Spacer()
                     
+                    Spacer()
+                    //                    「次に進む」のボタンの要素
                     VStack{
                         //                もし今表示している問題が最後の問題であれば
                         if currentQuestionIndex == audioContent.allpharase {
                             Button(action: {
                                 withAnimation() {
-                                    self.isShowSubViw.toggle()
+                                    self.isShowSubViw.toggle() // このViewが持っているStateを切り変える
                                 }
                             }) {
                                 Text("問題を終了する")
@@ -73,8 +75,8 @@ struct QuestionRootView: View {
                             //                    まだ問題があれば
                             Button(action: {
                                 sliderValue += 10 / self.maxValue
-                                currentQuestionIndex += 1
-                                
+                                currentQuestionIndex += 1 // 表示する問題を次のものに
+                                viewModel.selectedBox = .unknown // ページを更新するたびに、選択しているものをリセットする
                             }) {
                                 Text("次の問題に進む")
                             }
@@ -88,8 +90,6 @@ struct QuestionRootView: View {
         }
         .transition(.identity)
     }
-    
-    
 }
 
 
@@ -114,6 +114,5 @@ struct QuestionSubView: View {
 struct QuestionRootView_Previews: PreviewProvider {
     static var previews: some View {
         QuestionRootView(audioContent: audioContentData[0])
-        
     }
 }

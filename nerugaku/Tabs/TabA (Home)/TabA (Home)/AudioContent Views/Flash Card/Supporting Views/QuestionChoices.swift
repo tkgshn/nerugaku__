@@ -8,7 +8,28 @@
 
 import SwiftUI
 
-// MARK: - 回答の選択肢を生成
+// ユーザーが何を選択したのかがわかるように、BoxのTypeを定義する
+enum BoxType: String {
+    case unknown
+    case red
+    case green
+    case blue
+}
+
+// 選択状態をハンドリングできるようにSingleSelectableBoxViewModelというViewModelを定義
+//selectedBoxというプロパティを定義しています。@PublishedのProperty Wrapperをつけているので、値が更新されると自動的にSwiftUIにも通知されViewが更新されます。
+final class SingleSelectableBoxViewModel: ObservableObject {
+    @Published var selectedBox: BoxType = .unknown
+    var cancels: [Any] = []
+    
+    init() {
+        let selected = $selectedBox.sink { (box) in
+            print("selected box is \(box.rawValue)")
+            
+        }
+        cancels.append(selected)
+    }
+}
 
 // MARK: - BoxView
 //選択肢は同じid内のphrasesをランダムに取得したものにする
@@ -31,12 +52,6 @@ struct BoxView: View {
     ]
     
     
-    //    // 数字でDicの番号を指定して、その中のenglishを吐き出す関数
-    //    func getQuestion(_ index: Int) -> String {
-    //        let question = Dic[index]["english"]!
-    //        return question
-    //    }
-    
     // 数字でDicのリスト番号を指定して、その中のjapaneseを吐き出す関数
     func getJapaneseQuestion(_ index: Int) -> String {
         let japaneseWord = Dic[index]["japanese"]!
@@ -44,43 +59,25 @@ struct BoxView: View {
     }
     
     var body: some View {
-        
+        // currentQuestionIndexがもともと1から始まっているので、ここで引いてあげなきゃいけない
         Text(getJapaneseQuestion(currentQuestionIndex-1)) // これで絶対答えのが表示されてるようになる？
             .font(.headline)
             .padding()
             .background(color)
             .cornerRadius(10)
+            //        onTapGestureでタップしたらviewModelのselectedBoxに.redを代入し、赤いViewが選択されたことを表現
             .onTapGesture {
                 self.selectedBox = self.boxType
             }
             .padding()
+            //        selectedBoxがredだったら枠線を表示
             .border(Color.black, width: selectedBox == boxType ? 4 : 0)
+//            .onAppear { //　このViewを新規で開いた際に選択中のものを初期化する
+//                self.selectedBox = .unknown
+//            }
+        
     }
-}
-
-
-
-
-
-
-
-enum BoxType: String {
-    case unknown
-    case red
-    case green
-    case blue
-}
-
-final class SingleSelectableBoxViewModel: ObservableObject {
-    @Published var selectedBox: BoxType = .unknown
-    var cancels: [Any] = []
     
-    init() {
-        let selected = $selectedBox.sink { (box) in
-            print("selected box is \(box.rawValue)")
-        }
-        cancels.append(selected)
-    }
 }
 
 
@@ -97,7 +94,11 @@ struct SingleSelectableBoxView: View {
             BoxView(selectedBox: $selectedBox, color: .blue, boxType: .blue, currentQuestionIndex: $currentQuestionIndex)
             
         }
+//        .onAppear { //　このViewを新規で開いた際に選択中のものを初期化する
+//            self.selectedBox = .unknown
+//        }
     }
+    
 }
 
 
@@ -106,6 +107,6 @@ struct SingleSelectableBoxView: View {
 struct QuestionRootView_Previews2: PreviewProvider {
     static var previews: some View {
         QuestionRootView(audioContent: audioContentData[0])
-        
+
     }
 }
