@@ -15,7 +15,7 @@ struct QuestionRootView: View {
     //    最初のMac Valueを10と仮定する
     @State var maxValue: Double = 10
     //    遷移前かどうかを判断する
-    @State var isShowSubViw = false
+    @State var isShowSubView = false
     //    現在表示している問題の番号
     @State var currentQuestionIndex:Int = 1
     
@@ -25,24 +25,16 @@ struct QuestionRootView: View {
     var body: some View {
         ZStack {
             // NOTE: 画面をレンダリングするかで画面遷移を発生する
-            if isShowSubViw {
-                QuestionSubView()
+            if isShowSubView {
+                QuestionSubView(getChoicesNumber: $getChoicesNumber)
             } else {
                 VStack {
                     //                    上部の進捗を表示するバー
-                    ProgressBar(value: $sliderValue.wrappedValue + 1,
-                                maxValue: Double(audioContent.allpharase),
-                                foregroundColor: .green)
-                        .frame(height: 10)
-                        .padding(30)
+                    QuestionProgressBar(audioContent: audioContent, sliderValue: $sliderValue, maxValue: $maxValue, isShowSubView: $isShowSubView, currentQuestionIndex: $currentQuestionIndex, getChoicesNumber: $getChoicesNumber)
                     
                     Spacer()
                     //                    進捗を数値でも表示
-                    HStack {                        Text(String(currentQuestionIndex))
-                        Text("/")
-                        Text(String(audioContent.allpharase))
-                    }
-                    .padding(.bottom, 50.0)
+                    QuestionState(audioContent: audioContent, sliderValue: $sliderValue, maxValue: $maxValue, isShowSubView: $isShowSubView, currentQuestionIndex: $currentQuestionIndex)
                     
                     Spacer()
                     //                    問題文を表示
@@ -62,30 +54,7 @@ struct QuestionRootView: View {
                     
                     Spacer()
                     //                    「次に進む」のボタンの要素
-                    VStack{
-                        //                もし今表示している問題が最後の問題であれば
-                        if currentQuestionIndex == audioContent.allpharase {
-                            Button(action: {
-                                withAnimation() {
-                                    self.isShowSubViw.toggle() // このViewが持っているStateを切り変える
-                                }
-                            }) {
-                                Text("問題を終了する")
-                            }
-                        } else  {
-                            //                    まだ問題があれば
-                            Button(action: {
-                                sliderValue += 10 / self.maxValue
-                                currentQuestionIndex += 1 // 表示する問題を次のものに
-                                viewModel.selectedBox = .unknown // ページを更新するたびに、選択しているものをリセットする
-                            }) {
-                                Text("次の問題に進む")
-                            }
-                            
-                        }
-                        
-                    }
-                    .padding(.bottom, 40.0)
+                    QuestionEnterButton(audioContent: audioContent, sliderValue: $sliderValue, maxValue: $maxValue, isShowSubView: $isShowSubView, currentQuestionIndex: $currentQuestionIndex)
                 }
             }
         }
@@ -98,11 +67,12 @@ struct QuestionRootView: View {
 //ここで遷移先
 //サマリーを表示するために引っ張ってくる
 struct QuestionSubView: View {
+    @Binding var getChoicesNumber: Int
     var body: some View {
         GeometryReader { geometory in
             ZStack {
                 Spacer()
-                QuestionSummary(audioContent: audioContentData[0])
+                QuestionSummary(audioContent: audioContentData[0], getChoicesNumber: $getChoicesNumber)
             }
             .animation(.easeInOut(duration: 0.42))
         }
@@ -126,8 +96,10 @@ struct QuestionRootView_Previews: PreviewProvider {
     struct QuestionRootViewPreviews : View{
         @State var getChoicesNumber: Int = 0
         var body: some View{
-//            ここで辞書にString型で引数を設定してあげる
+            //            ここで辞書にString型で引数を設定してあげる
             QuestionRootView(audioContent: audioContentData[0], getChoicesNumber: self.$getChoicesNumber)
         }
     }
 }
+
+

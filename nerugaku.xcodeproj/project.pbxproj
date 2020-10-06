@@ -23,6 +23,10 @@
 		C400A473252C481B00F6D914 /* SummaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400A472252C481B00F6D914 /* SummaryButton.swift */; };
 		C400A475252C489800F6D914 /* SummaryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400A474252C489800F6D914 /* SummaryText.swift */; };
 		C400A477252C4EF500F6D914 /* SummaryWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400A476252C4EF500F6D914 /* SummaryWords.swift */; };
+		C400A479252C524200F6D914 /* CheckboxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400A478252C524200F6D914 /* CheckboxField.swift */; };
+		C400A47D252C562900F6D914 /* QuestionProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400A47C252C562900F6D914 /* QuestionProgressBar.swift */; };
+		C400A47F252C563B00F6D914 /* QuestionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400A47E252C563B00F6D914 /* QuestionState.swift */; };
+		C400A481252C564D00F6D914 /* QuestionEnterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400A480252C564D00F6D914 /* QuestionEnterButton.swift */; };
 		C4080EB2250B5CDC004001C0 /* FavoritedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4080EB1250B5CDC004001C0 /* FavoritedList.swift */; };
 		C4080EB4250BA921004001C0 /* AudioContentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4080EB3250BA921004001C0 /* AudioContentList.swift */; };
 		C4080EB8250C2BDF004001C0 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4080EB6250C2B71004001C0 /* HealthKit.framework */; };
@@ -105,6 +109,10 @@
 		C400A472252C481B00F6D914 /* SummaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryButton.swift; sourceTree = "<group>"; };
 		C400A474252C489800F6D914 /* SummaryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryText.swift; sourceTree = "<group>"; };
 		C400A476252C4EF500F6D914 /* SummaryWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryWords.swift; sourceTree = "<group>"; };
+		C400A478252C524200F6D914 /* CheckboxField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxField.swift; sourceTree = "<group>"; };
+		C400A47C252C562900F6D914 /* QuestionProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionProgressBar.swift; sourceTree = "<group>"; };
+		C400A47E252C563B00F6D914 /* QuestionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionState.swift; sourceTree = "<group>"; };
+		C400A480252C564D00F6D914 /* QuestionEnterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionEnterButton.swift; sourceTree = "<group>"; };
 		C4080EB1250B5CDC004001C0 /* FavoritedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedList.swift; sourceTree = "<group>"; };
 		C4080EB3250BA921004001C0 /* AudioContentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentList.swift; sourceTree = "<group>"; };
 		C4080EB5250C2B71004001C0 /* nerugaku.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nerugaku.entitlements; sourceTree = "<group>"; };
@@ -191,11 +199,39 @@
 			isa = PBXGroup;
 			children = (
 				C4F206F7251B4AA800336803 /* QuestionSummary.swift */,
+				C400A47A252C527400F6D914 /* Supporting Views */,
+			);
+			path = "Summary View";
+			sourceTree = "<group>";
+		};
+		C400A47A252C527400F6D914 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				C400A478252C524200F6D914 /* CheckboxField.swift */,
 				C400A476252C4EF500F6D914 /* SummaryWords.swift */,
 				C400A472252C481B00F6D914 /* SummaryButton.swift */,
 				C400A474252C489800F6D914 /* SummaryText.swift */,
 			);
-			path = "Summary View";
+			path = "Supporting Views";
+			sourceTree = "<group>";
+		};
+		C400A47B252C560900F6D914 /* Question View */ = {
+			isa = PBXGroup;
+			children = (
+				C4F206E425160B4000336803 /* QuestionsView.swift */,
+				C400A482252C565D00F6D914 /* Supporting Views */,
+			);
+			path = "Question View";
+			sourceTree = "<group>";
+		};
+		C400A482252C565D00F6D914 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				C400A480252C564D00F6D914 /* QuestionEnterButton.swift */,
+				C400A47E252C563B00F6D914 /* QuestionState.swift */,
+				C400A47C252C562900F6D914 /* QuestionProgressBar.swift */,
+			);
+			path = "Supporting Views";
 			sourceTree = "<group>";
 		};
 		C4178713251D564D002E3FA8 /* For Detial */ = {
@@ -515,7 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				C400A470252C47C200F6D914 /* Summary View */,
-				C4F206E425160B4000336803 /* QuestionsView.swift */,
+				C400A47B252C560900F6D914 /* Question View */,
 				C4F20706251B691D00336803 /* Supporting Views */,
 			);
 			path = "Flash Card";
@@ -647,6 +683,7 @@
 				C457D26B24F941DE000EB044 /* PlaylistItem.swift in Sources */,
 				C4A0DC2524C84A6700421EA6 /* Description.swift in Sources */,
 				C4F206E525160B4000336803 /* QuestionsView.swift in Sources */,
+				C400A47D252C562900F6D914 /* QuestionProgressBar.swift in Sources */,
 				C4A0DC2124C8496C00421EA6 /* TabCView.swift in Sources */,
 				C49D17B0251D5CB800BD7A51 /* CategoryList.swift in Sources */,
 				C457D26F24F94205000EB044 /* RemoteCommandCenter.swift in Sources */,
@@ -666,12 +703,15 @@
 				C400A477252C4EF500F6D914 /* SummaryWords.swift in Sources */,
 				C4B2E29B24CF45F20084B0E3 /* SubCategoryText.swift in Sources */,
 				C4A0DC0124C6D83D00421EA6 /* SceneDelegate.swift in Sources */,
+				C400A479252C524200F6D914 /* CheckboxField.swift in Sources */,
 				C43FD3D424CAFC0200430C3B /* YouView.swift in Sources */,
 				C49D17BB251D61A800BD7A51 /* List2.swift in Sources */,
 				C4A0DC1724C6D8CD00421EA6 /* HomeView.swift in Sources */,
 				C457D27824F9429E000EB044 /* SampleBufferSource.swift in Sources */,
+				C400A47F252C563B00F6D914 /* QuestionState.swift in Sources */,
 				C417872F251D58D3002E3FA8 /* FavoritedSell.swift in Sources */,
 				C4A0DC0324C6D83D00421EA6 /* ContentView.swift in Sources */,
+				C400A481252C564D00F6D914 /* QuestionEnterButton.swift in Sources */,
 				C41786D4251CD46C002E3FA8 /* SystemDictionary.swift in Sources */,
 				C4A0DC2324C8497A00421EA6 /* LibraryView.swift in Sources */,
 				C4B2E29924CF45B90084B0E3 /* YourLibraryView.swift in Sources */,

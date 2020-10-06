@@ -67,11 +67,11 @@ struct SummaryWords: View {
 
 
 
-struct SummaryWords_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            QuestionSummary(audioContent: audioContentData[0]).colorScheme(.light)
-            QuestionSummary(audioContent: audioContentData[0]).colorScheme(.dark)
-        }
-    }
-}
+//struct SummaryWords_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            QuestionSummary(audioContent: audioContentData[0]).colorScheme(.light)
+//            QuestionSummary(audioContent: audioContentData[0]).colorScheme(.dark)
+//        }
+//    }
+//}
