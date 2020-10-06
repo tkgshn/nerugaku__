@@ -20,7 +20,7 @@ struct QuestionSummary: View {
         ZStack {
             if isShowSubView {
                 //                単語の復讐へをクリックすると表示されるview
-                QuestionRootView(audioContent: audioContent, getChoicesNumber: $getChoicesNumber)
+                QuestionRootView(audioContent: audioContent, getChoicesNumber: getChoicesNumber)
             } else {
                 //                それ以外の場合の処理
                 ScrollView {
@@ -38,21 +38,4 @@ struct QuestionSummary: View {
         }
     }
 }
-
-
-
-//
-//
-//struct QuestionSummary_Previews: PreviewProvider {
-//    @Binding var getChoicesNumber: Int
-//    static var previews: some View {
-//        Group {
-//            QuestionSummary(audioContent: audioContentData[0], getChoicesNumber: $getChoicesNumber).colorScheme(.light)
-//            QuestionSummary(audioContent: audioContentData[0], getChoicesNumber: getChoicesNumber).colorScheme(.dark)
-//        }
-//    }
-//}
-//
-//
-
 

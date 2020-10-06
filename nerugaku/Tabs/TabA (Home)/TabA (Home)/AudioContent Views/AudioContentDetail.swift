@@ -30,7 +30,7 @@ struct AudioContentDetail: View {
                     .edgesIgnoringSafeArea(.top)
                 
                 Description(audioContent: audioContent)
-                    .padding(.top, 50.0)
+                    .padding(.top, 60.0)
                     .padding(.bottom)
                 //                下に書いている
                 PhraseRow(audioContent: audioContent)
